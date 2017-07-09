@@ -1,3 +1,89 @@
 # Heading
 
 This is a heading in my first chapter, using this to test leanpub publishing
+
+Testing content to see how Leanpub will render mkdocs markdown.
+
+
+# keepalived
+
+
+## On both hosts
+
+The design for redundant Docker hosts requires a virtual IP for high availability. To enable this, we install the "keepalived" daemon on both hosts:
+
+````yum -y install keepalived````
+
+Below, we'll configure a very basic primary/secondary configuration.
+
+!!! note
+    Note that if you have a firewall on your hosts, you need to permit the VRRP traffic, as follows (note that for both INPUT and OUTPUT rule, the destination is 224.0.0.18, a multicast address)
+
+    ````
+    # permit keepalived in
+    -A INPUT -i eth0 -d 224.0.0.18 -j ACCEPT
+
+    # permit keepalived out
+    -A OUTPUT -o eth0 -d 224.0.0.18 -j ACCEPT
+    ````
+
+## On the primary
+
+Configure keepalived (note the priority)
+````
+VIP=<YOUR HA IP>
+PASS=<PASSWORD-OF-CHOICE>
+cat << EOF > /etc/keepalived/keepalived.conf
+vrrp_instance DS {
+    state MASTER
+    interface eth0
+    virtual_router_id 42
+    priority 200
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass $PASS
+    }
+    virtual_ipaddress {
+        $VIP
+    }
+}
+EOF
+systemctl enable keepalived
+systemctl start keepalived
+````
+
+## On the secondary
+
+Repeat the same on the secondary (all that changes is the priority - the priority of the secondary must be lower than that of the primary):
+
+````
+VIP=<YOUR HA IP>
+PASS=<PASSWORD-OF-CHOICE>
+cat << EOF > /etc/keepalived/keepalived.conf
+vrrp_instance DS {
+    state MASTER
+    interface eth0
+    virtual_router_id 42
+    priority 100
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass $PASS
+    }
+    virtual_ipaddress {
+        $VIP
+    }
+}
+EOF
+systemctl enable keepalived
+systemctl start keepalived
+````
+
+Check the state of keepalived on both nodes by running
+````systemctl status keepalived````
+
+
+## Confirm HA function
+
+You should now be able to ping your HA IP address, and you can test the HA function by running ````tail -f /var/log/messages | grep Keepalived```` the secondary node, and turning keepalived off/on on the primary node, by running ````systemctl stop keepalived && sleep 10s && systemctl start keepalived````. 
