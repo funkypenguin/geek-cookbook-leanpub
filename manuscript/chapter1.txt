@@ -1,8 +1,5 @@
 # Introduction
 
-##whoami
-
-
 Hello world,
 
 I'm [David](https://www.funkypenguin.co.nz/contact/).

@@ -1,0 +1,3 @@
+# HA Docker Swarm
+
+This chapter describes the process of creating a HA docker swarm to run a "private cloud"
