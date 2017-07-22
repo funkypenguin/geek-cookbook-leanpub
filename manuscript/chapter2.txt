@@ -147,10 +147,7 @@ To:
 }
 ```
 
-{blurb, class: tip}
-!!! tip ""
-    Note the extra comma required after "false" above
-{/blurb}
+T>  Note the extra comma required after "false" above
 
 ### Tweaks
 
@@ -178,9 +175,10 @@ meltwater/docker-cleanup:latest
 
 Finally, apply any Atomic host updates, and reboot, by running: ```atomic host upgrade && systemctl reboot```.
 
-
+{blurb, class: information}
 !!! summary "Ready to serve..."
     After completing the above, you should have:
 
     * [X] 3 fresh atomic instances, at the latest releases
     * [X] Docker 1.13, with experimental features enabled
+{/blurb}
