@@ -1,4 +1,4 @@
-# Section 1 : The HA Docker Swarm
+# Section 1 : The HA Docker Swarm #
 
 This chapter describes the process of creating a HA docker swarm to run a "private cloud"
 
@@ -147,8 +147,10 @@ To:
 }
 ```
 
+{blurb, class: tip}
 !!! tip ""
     Note the extra comma required after "false" above
+{/blurb}
 
 ### Tweaks
 
@@ -163,8 +165,12 @@ echo 'source ~/gcb-aliases.sh' >> ~/.bash_profile
 
 ### Setup automated cleanup
 
+
 ```
-docker run -d  -v /var/run/docker.sock:/var/run/docker.sock:rw   -v /var/lib/docker:/var/lib/docker:rw   meltwater/docker-cleanup:latest
+docker run -d  \
+-v /var/run/docker.sock:/var/run/docker.sock:rw \
+-v /var/lib/docker:/var/lib/docker:rw  \
+meltwater/docker-cleanup:latest
 ```
 
 
