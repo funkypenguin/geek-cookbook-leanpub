@@ -99,11 +99,11 @@ I chose the "[Atomic](https://www.projectatomic.io/)" CentOS/Fedora image for th
 !!! summary "Ingredients"
     3 x Virtual Machines, each with:
 
-    * [ ] CentOS/Fedora Atomic
+```    * [ ] CentOS/Fedora Atomic
     * [ ] At least 1GB RAM
     * [ ] At least 20GB disk space (_but it'll be tight_)
     * [ ] Connectivity to each other within the same subnet, and on a low-latency link (_i.e., no WAN links_)
-
+```
 
 ## Preparation
 
