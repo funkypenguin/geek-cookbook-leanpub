@@ -1,7 +1,5 @@
 # Virtual Machines
 
-## Introduction
-
 Let's start building our cloud with virtual machines. You could use bare-metal machines as well, the configuration would be the same. Given that most readers (myself included) will be using virtual infrastructure, from now on I'll be referring strictly to VMs.
 
 I chose the "[Atomic](https://www.projectatomic.io/)" CentOS/Fedora image for the VM layer because:
@@ -29,7 +27,7 @@ I chose the "[Atomic](https://www.projectatomic.io/)" CentOS/Fedora image for th
 2. The default username on CentOS atomic is "centos", and you'll have needed to supply your SSH key during the build process.
 
 {blurb, class:tip}
-    If you're not using a platform with cloud-init support (i.e., you're building a VM manually, not provisioning it through a cloud provider), you'll need to refer to [trick #1][atomic-trick1] and [#2][atomic-trick2] for a means to override the automated setup, apply a manual password to the CentOS account, and enable SSH password logins.
+    If you're not using a platform with cloud-init support (i.e., you're building a VM manually, not provisioning it through a cloud provider), you'll need to refer to [trick #1][https://spinningmatt.wordpress.com/2014/01/08/a-recipe-for-starting-cloud-images-with-virt-install/] and [#2][http://blog.oddbit.com/2015/03/10/booting-cloud-images-with-libvirt/] for a means to override the automated setup, apply a manual password to the CentOS account, and enable SSH password logins.
 {/blurb}
 
 ### Change to latest docker
@@ -70,7 +68,9 @@ Add some handy bash auto-completion for docker. Without this, you'll get annoyed
 
 ```
 cd /etc/bash_completion.d/
-curl -O https://raw.githubusercontent.com/docker/cli/b75596e1e4d5295ac69b9934d1bd8aff691a0de8/contrib/completion/bash/docker
+curl -O https://raw.githubusercontent.com/docker/\
+cli/b75596e1e4d5295ac69b9934d1bd8aff691a0de8/\
+contrib/completion/bash/docker
 ```
 
 ### Tweaks
@@ -80,7 +80,8 @@ Apply some useful tweaks:
 Install some useful bash aliases on each host
 ```
 cd ~
-curl -O https://gitlab.funkypenguin.co.nz/funkypenguin/geeks-cookbook-recipies/raw/master/bash/gcb-aliases.sh
+curl -O https://gitlab.funkypenguin.co.nz/funkypenguin/\
+geeks-cookbook-recipies/raw/master/bash/gcb-aliases.sh
 echo 'source ~/gcb-aliases.sh' >> ~/.bash_profile
 ```
 
@@ -108,9 +109,11 @@ By default, Atomic only permits incoming SSH. We'll want to allow all traffic be
 
 And restart iptables with ```systemctl restart iptables```
 
+## Serve
 
-!!! summary "Ready to serve..."
-    After completing the above, you should have:
+After completing the above, you should have:
 
-    * [X] 3 fresh atomic instances, at the latest releases
-    * [X] Docker 1.13, with experimental features enabled
+~~~
+[X] 3 fresh atomic instances, at the latest releases
+[X] Docker 1.13, with experimental features enabled
+~~~

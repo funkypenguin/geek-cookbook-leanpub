@@ -1,7 +1,5 @@
 # Platform : HA Docker Swarm #
 
-# Introduction
-
 In the design described below, the "private cloud" platform is:
 
 * **Highly-available** (_can tolerate the failure of a single component_)
