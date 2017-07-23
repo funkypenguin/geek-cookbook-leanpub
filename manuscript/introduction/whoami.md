@@ -1,4 +1,4 @@
-# Introduction #
+## About the author
 
 Hello world,
 
@@ -8,13 +8,13 @@ I've spent 20+ years working with technology. My current role is **Senior Infras
 
 I've had a [book published](https://www.funkypenguin.co.nz/book/phplist-2-email-campaign-manager/), and I [blog](https://www.funkypenguin.co.nz/blog/) on topics that interest me.
 
-## Why Funky Penguin?
+### Why Funky Penguin?
 
 My first "real" job, out of high-school, was working the IT helpdesk in a typical pre-2000 organization in South Africa. I enjoyed experimenting with Linux, and cut my teeth by replacing the organization's Exchange 5.5 mail platform with a 15-site [qmail-ldap](http://www.nrg4u.com/) cluster, with [amavis](https://en.wikipedia.org/wiki/Amavis) virus-scanning.
 
 One of our suppliers asked me to quote to do the same for their organization. With nothing to loose, and half-expecting to be turned down, I quoted a generous fee, and chose a cheeky company name. The supplier immediately accepted my quote, and the name ("_Funky Penguin_") stuck.
 
-## Technical Documentation
+### Technical Documentation
 
 During the same "real" job above, I wanted to deploy [jabberd](https://en.wikipedia.org/wiki/Jabberd14), for internal instant messaging within the organization, and as a means to control the sprawl of ad-hoc instant-messaging among staff, using ICQ, MSN, and Yahoo Messenger.
 
@@ -22,7 +22,7 @@ To get management approval to deploy, I wrote a logger (with web UI) for jabber 
 
 Due to my contributions to [phpList](http://www.phplist.com), I was approached in 2011 by [Packt Publishing](http://www.packtpub.com), to [write a book](https://www.funkypenguin.co.nz/book/phplist-2-email-campaign-manager) about using PHPList.
 
-## Contact Me
+### Contact Me
 
 Contact me by:
 

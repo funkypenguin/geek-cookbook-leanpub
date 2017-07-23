@@ -1,3 +1,5 @@
+# Platform : HA Docker Swarm #
+
 # Introduction
 
 In the design described below, the "private cloud" platform is:
