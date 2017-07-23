@@ -109,11 +109,11 @@ By default, Atomic only permits incoming SSH. We'll want to allow all traffic be
 
 And restart iptables with ```systemctl restart iptables```
 
-## Serve
+## Serving
 
 After completing the above, you should have:
 
-~~~
-[X] 3 fresh atomic instances, at the latest releases
-[X] Docker 1.13, with experimental features enabled
-~~~
+1. 3 fresh atomic instances, at the latest releases
+2. Docker 1.13, with experimental features enabled
+
+Next up, configuring shared storage...
